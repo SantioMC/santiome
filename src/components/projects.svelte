@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { get } from 'svelte/store';
+	import { projects as projectStore } from './../store/strapi';
 	import Project from "$component/projects/project.svelte";
 	import { strapi, type Project as ProjectData } from '$lib/strapi';
 	import { onMount } from "svelte";
@@ -13,12 +15,19 @@
 	}
 
 	onMount(async () => {
+		if (get(projectStore).length > 0) {
+			projects = get(projectStore);
+			loaded = true;
+			return;
+		}
+
 		projects = (await strapi<[ProjectData]>({
 			endpoint: 'projects?populate=*&sort=publishedAt:desc',
 			wrappedByKey: 'data',
 		}));
 
 		loaded = true;
+		projectStore.set(projects);
 	})
 </script>
 

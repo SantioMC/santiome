@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { blogs as blogStore } from './../store/strapi';
 	import Blog from '$component/blog/blog.svelte';
 	import { fade } from "svelte/transition";
 	import { strapi, type Post } from '$lib/strapi';
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
 
 	let blogs: Post[] = []
 	let loaded = false;
@@ -12,12 +14,19 @@
 	}
 
 	onMount(async () => {
+		if (get(blogStore).length > 0) {
+			blogs = get(blogStore);
+			loaded = true;
+			return;
+		}
+
 		blogs = (await strapi<[Post]>({
 			endpoint: 'blogs?populate=tags&sort=publishedAt:desc',
 			wrappedByKey: 'data',
 		}));
 
 		loaded = true;
+		blogStore.set(blogs);
 	})
 </script>
 
