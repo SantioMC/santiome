@@ -8,6 +8,7 @@
 	export let name: string;
 	export let tags: {[key: number]: Tag};
 	export let shortDescription: string | null;
+	export let body: string | null;
 	export let slug: string;
 
 	$: tagArray = Object.values(tags);
@@ -33,7 +34,7 @@
 			</div>
 		{/each}
 	</div>
-	<p class="overflow-hidden">{shortDescription}</p>
+	<p class="overflow-hidden">{shortDescription ?? body}</p>
 	<Button variant="outline" class="bg-transparent mt-auto" on:click={open}>Read Article</Button>
 </div>
 

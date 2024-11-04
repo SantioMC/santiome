@@ -38,6 +38,7 @@
 				name={blog.title ?? 'Unknown'}
 				tags={blog.tags ?? {}} 
 				shortDescription={blog.short_description}
+				body={blog.body}
 				slug={blog.slug}  
 			/>
 		{/each}
