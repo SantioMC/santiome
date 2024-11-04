@@ -4,11 +4,13 @@
 	import Icon from "$component/ui/icon.svelte";
 	import Button from "$component/ui/button/button.svelte";
 	import SvelteMarkdown from "svelte-markdown";
-	import { page } from "~/store/page";
 	export let slug: string;
+
+	const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
 
 	let loaded: boolean = false;
 	let data: Post | undefined = undefined;
+	let published: Date | undefined = undefined;
 	
 	const goBack = (event: MouseEvent) => {
 		event.preventDefault();
@@ -21,6 +23,7 @@
 			wrappedByKey: 'data',
 		}))[0];
 
+		published = new Date(data.publishedAt);
 		loaded = true;
 	})
 
@@ -38,7 +41,11 @@
 	{#if loaded && data}
 		<div class="flex flex-col gap-1">
 			<h1 class="text-3xl font-bold">{data.title}</h1>
-			<p class="text-sm text-muted select-none">Created by {data.author?.name ?? 'Unknown Author'}</p>
+			<div class="text-sm text-muted select-none flex flex-row items-center gap-1">
+				<p>Created by {data.author?.name ?? 'Unknown Author'}</p>
+				<span>•</span>
+				{#if published}<p>Published on {formatter.format(published)}</p>{/if}
+			</div>
 		</div>
 
 		<SvelteMarkdown source={data.body} />
