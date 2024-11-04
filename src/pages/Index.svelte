@@ -23,6 +23,7 @@
 <svelte:head>
 	<meta property="og:title" content="santio.me" />
 	<meta property="og:description" content="Welcome to my personal site, come check out some of my projects or past work experience." />
+	<meta name="description" content="Welcome to my personal site, come check out some of my projects or past work experience.">
 </svelte:head>
 
 <main

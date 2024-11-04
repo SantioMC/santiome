@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from "svelte";
-	import { strapi, type Post } from "$lib/strapi";
+	import { strapi, strapiImage, type Post } from "$lib/strapi";
 	import Icon from "$component/ui/icon.svelte";
 	import Button from "$component/ui/button/button.svelte";
 	import SvelteMarkdown from "svelte-markdown";
@@ -9,8 +9,10 @@
 
 	const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
 
+	// Used for open graph
 	let title = writable<string | undefined>(undefined);
 	let description = writable<string | undefined>(undefined);
+	let image = writable<string | undefined>(undefined);
 
 	let loaded: boolean = false;
 	let data: Post | undefined = undefined;
@@ -30,6 +32,7 @@
 		published = new Date(data.publishedAt);
 		title.set(data.title);
 		description.set(data.short_description ?? data.body);
+		if (data.image) image.set(strapiImage(data.image));
 
 		loaded = true;
 	})
@@ -41,7 +44,7 @@
 
 <svelte:head>
 	{#if $title}
-		<meta property="og:title" content={`santio.me | ${$title}`} />
+		<meta property="og:title" content={$title} />
 		<title>santio.me | {$title}</title>
 	{:else}
 		<meta property="og:title" content="santio.me" />
@@ -50,8 +53,14 @@
 
 	{#if $description}
 		<meta property="og:description" content={$description} />
+		<meta name="description" content={$description} />
 	{:else}
 		<meta property="og:description" content="A blog about topics that interest me or that I've experienced, come check it out!" />
+		<meta name="description" content="A blog about topics that interest me or that I've experienced, come check it out!">
+	{/if}
+
+	{#if $image}
+		<meta property="og:image" content={$image} />
 	{/if}
 </svelte:head>
 
