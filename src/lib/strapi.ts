@@ -71,6 +71,7 @@ export interface Post {
   short_description: string | null;
   body: string;
   slug: string;
+  hidden: boolean;
 
   author: Author | undefined;
   tags: {[key: number]: Tag} | undefined;

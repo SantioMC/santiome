@@ -76,8 +76,14 @@
 			<h1 class="text-3xl font-bold">{data.title}</h1>
 			<div class="text-sm text-muted select-none flex flex-row items-center gap-1">
 				<p>Created by {data.author?.name ?? 'Unknown Author'}</p>
-				<span>•</span>
-				{#if published}<p>Published on {formatter.format(published)}</p>{/if}
+				{#if published}
+					<span>•</span>
+					<p>Published on {formatter.format(published)}</p>
+				{/if}
+				{#if data.hidden}
+					<span>•</span>
+					<p>Hidden post</p>
+				{/if}
 			</div>
 		</div>
 
