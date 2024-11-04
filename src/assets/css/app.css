@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.21.0/fonts/tabler-icons.ttf');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
