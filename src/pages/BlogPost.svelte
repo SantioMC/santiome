@@ -44,6 +44,7 @@
 
 <svelte:head>
 	{#if $title}
+	    <meta property="og:site_name" content="santio.me" />
 		<meta property="og:title" content={$title} />
 		<title>santio.me | {$title}</title>
 	{:else}
