@@ -72,6 +72,7 @@ export interface Post {
   body: string;
   slug: string;
   hidden: boolean;
+  banner_fit: string | null;
 
   author: Author | undefined;
   tags: {[key: number]: Tag} | undefined;

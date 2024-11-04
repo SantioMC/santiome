@@ -14,6 +14,7 @@
 	let description = writable<string | undefined>(undefined);
 	let image = writable<string | undefined>(undefined);
 
+	let bannerFit = 'fill';
 	let loaded: boolean = false;
 	let data: Post | undefined = undefined;
 	let published: Date | undefined = undefined;
@@ -32,7 +33,9 @@
 		published = new Date(data.publishedAt);
 		title.set(data.title);
 		description.set(data.short_description ?? data.body);
+
 		if (data.image) image.set(strapiImage(data.image));
+		if (data.banner_fit) bannerFit = data.banner_fit.toLowerCase();
 
 		loaded = true;
 	})
@@ -73,6 +76,11 @@
 
 	{#if loaded && data}
 		<div class="flex flex-col gap-1">
+			{#if $image}
+				<!-- Image banner -->
+				<img class="w-full h-24 my-8 rounded-md" style={`object-fit: ${bannerFit}`} src={$image} alt={data.title} />
+			{/if}
+
 			<h1 class="text-3xl font-bold">{data.title}</h1>
 			<div class="text-sm text-muted select-none flex flex-row items-center gap-1">
 				<p>Created by {data.author?.name ?? 'Unknown Author'}</p>
