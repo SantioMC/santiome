@@ -4,9 +4,13 @@
 	import Icon from "$component/ui/icon.svelte";
 	import Button from "$component/ui/button/button.svelte";
 	import SvelteMarkdown from "svelte-markdown";
+	import { writable } from "svelte/store";
 	export let slug: string;
 
 	const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
+
+	let title = writable<string | undefined>(undefined);
+	let description = writable<string | undefined>(undefined);
 
 	let loaded: boolean = false;
 	let data: Post | undefined = undefined;
@@ -24,6 +28,9 @@
 		}))[0];
 
 		published = new Date(data.publishedAt);
+		title.set(data.title);
+		description.set(data.short_description ?? data.body);
+
 		loaded = true;
 	})
 
@@ -31,6 +38,22 @@
 		window.location.reload();
 	}
 </script>
+
+<svelte:head>
+	{#if $title}
+		<meta property="og:title" content={`santio.me | ${$title}`} />
+		<title>santio.me | {$title}</title>
+	{:else}
+		<meta property="og:title" content="santio.me" />
+		<title>santio.me</title>
+	{/if}
+
+	{#if $description}
+		<meta property="og:description" content={$description} />
+	{:else}
+		<meta property="og:description" content="A blog about topics that interest me or that I've experienced, come check it out!" />
+	{/if}
+</svelte:head>
 
 <main class="blog-post bg-background text-foreground flex flex-col gap-4 w-auto h-fit">
 	<Button class="flex flex-row items-center gap-2 w-fit -translate-x-6" variant="ghost" on:click={goBack}>
