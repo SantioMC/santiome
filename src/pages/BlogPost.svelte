@@ -5,6 +5,7 @@
 	import Button from "$component/ui/button/button.svelte";
 	import SvelteMarkdown from "svelte-markdown";
 	import { writable } from "svelte/store";
+	import { navigate } from "svelte-routing";
 	export let slug: string;
 
 	const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
@@ -21,7 +22,7 @@
 	
 	const goBack = (event: MouseEvent) => {
 		event.preventDefault();
-		window.history.back();
+		navigate('/')
 	}
 
 	onMount(async () => {
@@ -82,7 +83,7 @@
 			{/if}
 
 			<h1 class="text-3xl font-bold">{data.title}</h1>
-			<div class="text-sm text-muted select-none flex flex-row items-center gap-1">
+			<div class="text-sm text-muted select-none flex flex-row items-center gap-1 metadata">
 				<p>Created by {data.author?.name ?? 'Unknown Author'}</p>
 				{#if published}
 					<span>•</span>
@@ -166,6 +167,17 @@
 	:global(.blog-post blockquote) {
 		border-left: 4px solid hsl(var(--card));
 		padding-left: 1em;
+	}
+
+	@media (max-width: 1100px) {
+		.metadata {
+			display: block;
+			margin-bottom: 1rem;
+		}
+
+		.metadata > span {
+			display: none;
+		}
 	}
 
 	@media (max-width: 768px) {
