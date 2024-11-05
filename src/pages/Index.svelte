@@ -56,7 +56,8 @@
 		grid-template-columns: 1fr 3fr 1fr;
 		grid-template-rows: 4rem 1fr;
 		gap: 1rem;
-		padding: 12rem;
+		padding: 0 12rem;
+		height: 36rem;
 	}
 
 	.grow {
@@ -69,13 +70,13 @@
 
 	@media (max-width: 1470px) {
 		.layout {
-			padding: 12rem 4rem;
+			padding: 0 4rem;
 		}
 	}
 
 	@media (max-width: 1220px) {
 		.layout {
-			padding: 12rem 1rem;
+			padding: 0 1rem;
 		}
 	}
 
