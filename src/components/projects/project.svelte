@@ -7,6 +7,7 @@
 	import { reference } from "~/store/page";
 	import { strapiImage, type Image, type Tag } from "$lib/strapi";
 	import contrast from 'font-color-contrast';
+	import SvelteMarkdown from "svelte-markdown";
 
 	export let image: Image | undefined;
 	export let name: string;
@@ -60,9 +61,9 @@
 		<div transition:slide={{ duration: 300 }} class="flex flex-col gap-2 h-fit">
 			<hr class="w-auto border-muted ml-8 mr-16" />
 			<div class="py-4">
-				<p class="w-full px-8">
-					{description}
-				</p>
+				<div class="markdown w-full px-8">
+					<SvelteMarkdown source={description} />
+				</div>
 
 				<div class="flex flex-row gap-2 items-center justify-end m-4 mb-0">
 					{#if source}
