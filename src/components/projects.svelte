@@ -22,7 +22,7 @@
 		}
 
 		projects = (await strapi<[ProjectData]>({
-			endpoint: 'projects?populate=*&sort=publishedAt:desc',
+			endpoint: 'projects?populate=*&sort=ordinal:desc',
 			wrappedByKey: 'data',
 		}));
 

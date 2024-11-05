@@ -9,6 +9,7 @@
 	export let slug: string;
 
 	const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
+	const WPM = 200;
 
 	// Used for open graph
 	let title = writable<string | undefined>(undefined);
@@ -19,6 +20,7 @@
 	let loaded: boolean = false;
 	let data: Post | undefined = undefined;
 	let published: Date | undefined = undefined;
+	let readTime = 1;
 	
 	const goBack = (event: MouseEvent) => {
 		event.preventDefault();
@@ -38,6 +40,7 @@
 		if (data.image) image.set(strapiImage(data.image));
 		if (data.banner_fit) bannerFit = data.banner_fit.toLowerCase();
 
+		readTime = Math.max(1, Math.ceil(data.body.split(' ').length / WPM));
 		loaded = true;
 	})
 
@@ -83,7 +86,7 @@
 			{/if}
 
 			<h1 class="text-3xl font-bold">{data.title}</h1>
-			<div class="text-sm text-muted select-none flex flex-row items-center gap-1 metadata">
+			<div class="text-sm text-muted select-none flex flex-row flex-wrap items-center gap-1 metadata">
 				<p>Created by {data.author?.name ?? 'Unknown Author'}</p>
 				{#if published}
 					<span>•</span>
@@ -92,11 +95,16 @@
 				{#if data.hidden}
 					<span>•</span>
 					<p>Hidden post</p>
+				{:else}
+					<span>•</span>
+					<p>{readTime} min read</p>
 				{/if}
 			</div>
 		</div>
 
-		<SvelteMarkdown source={data.body} />
+		<div class="markdown">
+			<SvelteMarkdown source={data.body} />
+		</div>
 	{:else if !loaded}
 		<span>Attempting to load post, if this takes long please try <button class="text-blue-500" on:click={refresh}>refreshing the page</button></span>
 	{:else}
@@ -107,66 +115,6 @@
 <style>
 	main {
 		padding: 6rem 30%; 
-	}
-
-	:global(.blog-post h1) {
-		font-size: 1.5rem;
-		line-height: 2rem;
-		font-weight: bold;
-	}
-
-	:global(.blog-post h2) {
-		font-size: 1.3rem;
-		line-height: 1.2;
-		font-weight: bold;
-	}
-
-	:global(.blog-post h3) {
-		font-size: 1.2rem;
-		line-height: 1.15;
-	}
-
-	:global(.blog-post h4) {
-		font-size: 1.1rem;
-		line-height: 1.1;
-	}
-
-	:global(.blog-post h5) {
-		font-size: 1rem;
-		line-height: 1.1;
-	}
-
-	:global(.blog-post ul > li) {
-		display: list-item;
-		list-style-type: disc;
-		margin-left: 1em;
-	}
-
-	:global(.blog-post ol > li) {
-		display: list-item;
-		list-style-type: decimal;
-		margin-left: 1em;
-	}
-
-	:global(.blog-post a) {
-		color: #3b82f6;
-	}
-
-	:global(.blog-post a:hover) {
-		color: #2d69f3;
-	}
-
-	:global(.blog-post pre:has(code)) {
-		width: 100%;
-		color: hsl(var(--card-foreground));
-		background-color: hsl(var(--card)); 
-		border-radius: 3px;
-		padding: 1em 1em;
-	}
-
-	:global(.blog-post blockquote) {
-		border-left: 4px solid hsl(var(--card));
-		padding-left: 1em;
 	}
 
 	@media (max-width: 1100px) {

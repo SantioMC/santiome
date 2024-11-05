@@ -7,6 +7,7 @@
 	import Identity from '$component/identity.svelte'; 
 	import Blog from '~/components/blog.svelte';
 	import { onMount } from 'svelte';
+	import Latest from '~/components/latest.svelte';
 	
 	const goto = (newPage: string) => {
 		page.set(newPage);
@@ -46,7 +47,7 @@
 		{:else if $page === 'blog'} <Blog />
 		{:else if $page === 'identity'} <Identity />
 		{/if}
-		<div></div>
+		<div><Latest /></div>
 	</div>
 </main>
 
@@ -60,6 +61,10 @@
 		height: 36rem;
 	}
 
+	:global(.layout > div:not(:first-child)) {
+		height: inherit;
+	}
+ 
 	.grow {
 		transition: all 0.2s ease-in-out;
 	}

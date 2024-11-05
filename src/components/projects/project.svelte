@@ -35,7 +35,7 @@
 	})
 </script>
 
-<div class="flex flex-col gap-2 h-fit bg-card p-2">
+<div class="flex flex-col gap-2 h-fit bg-card p-2 rounded-sm">
 	<button on:click={toggle} class="flex flex-row items-center gap-2 rounded-md grow text-clip w-full h-16 cursor-default hover-custom-scale transition-all">
 		{#if image}
 			<img class="w-12 h-12 object-cover rounded-md" src={strapiImage(image)} alt={name} />
@@ -89,6 +89,6 @@
 
 <style>
 	.hover-custom-scale:hover {
-		transform: scale(1.015);
+		transform: scale(1.005);
 	}
 </style>

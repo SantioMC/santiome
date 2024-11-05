@@ -3,6 +3,7 @@
 	import { strapiImage, type Image, type Tag } from '$lib/strapi';
 	import { navigate } from 'svelte-routing';
 	import contrast from 'font-color-contrast';
+	import SvelteMarkdown from 'svelte-markdown';
 	
 	export let image: Image | undefined = undefined;
 	export let name: string;
@@ -34,7 +35,9 @@
 			</div>
 		{/each}
 	</div>
-	<p class="overflow-hidden">{shortDescription ?? body}</p>
+	<div class="markdown overflow-hidden text-ellipsis">
+		<SvelteMarkdown source={shortDescription ?? body} />
+	</div>
 	<Button variant="outline" class="bg-transparent mt-auto" on:click={open}>Read Article</Button>
 </div>
 
