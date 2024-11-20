@@ -17,6 +17,10 @@
 
 <div in:fade={{ duration: 300 }} class="flex flex-col">
 	<div>
+		<p class="my-2 text-lg">Email</p>
+		<Code content={"business@santio.me"} />
+	</div>
+	<div>
 		<p class="my-2 text-lg">Public SSH Key</p>
 		<Code content={$key} />
 	</div>
