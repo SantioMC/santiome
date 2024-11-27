@@ -45,11 +45,12 @@ export async function strapi<T>({
 }
 
 export const strapiImage = (image: Image): string => {
+  if (image.provider === 'local') return image.url;
   return `${import.meta.env.VITE_STRAPI_URL}${image.url}`;
 }
 
 export interface Paginated<T> {
-  data: {[key: number]: T};
+  data: { [key: number]: T };
   meta: {
     pagination: {
       page: number;
@@ -75,7 +76,7 @@ export interface Post {
   banner_fit: string | null;
 
   author: Author | undefined;
-  tags: {[key: number]: Tag} | undefined;
+  tags: { [key: number]: Tag } | undefined;
 }
 
 export interface Author {
@@ -105,7 +106,7 @@ export interface Project {
   website: string | null;
   source_code: string | null;
   image: Image | null;
-  tags: {[key: number]: Tag};
+  tags: { [key: number]: Tag };
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -145,3 +146,38 @@ export interface Image {
   updatedAt: string;
   publishedAt: string;
 }
+
+export const mockImage = (url: string): Image => ({
+  id: 1,
+  documentId: '1',
+  name: 'image',
+  alternativeText: null,
+  caption: null,
+  width: 0,
+  height: 0,
+  formats: {
+    thumbnail: {
+      ext: 'png',
+      url,
+      hash: 'hash',
+      mime: 'image/png',
+      name: 'image',
+      path: null,
+      size: 0,
+      width: 0,
+      height: 0,
+      sizeInBytes: 0,
+    },
+  },
+  hash: 'hash',
+  ext: 'png',
+  mime: 'image/png',
+  size: 0,
+  url,
+  previewUrl: null,
+  provider: 'local',
+  provider_metadata: null,
+  createdAt: '2024-01-01T00:00:00.000Z',
+  updatedAt: '2024-01-01T00:00:00.000Z',
+  publishedAt: '2024-01-01T00:00:00.000Z',
+});
