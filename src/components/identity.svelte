@@ -18,7 +18,7 @@
 <div in:fade={{ duration: 300 }} class="flex flex-col">
 	<div>
 		<p class="my-2 text-lg">Email</p>
-		<Code content={"business@santio.me"} />
+		<Code content={'business@santio.me'} />
 	</div>
 	<div>
 		<p class="my-2 text-lg">Public SSH Key</p>
@@ -26,8 +26,6 @@
 	</div>
 	<div>
 		<p class="my-2 text-lg">Quick-add SSH</p>
-		<Code content={
-			`curl -s ${host}/ssh >> ~/.ssh/authorized_keys`
-		} />
+		<Code content={`curl -sL ${host}/ssh >> ~/.ssh/authorized_keys`} />
 	</div>
 </div>
