@@ -11,7 +11,7 @@
 
 	onMount(async () => {
 		const posts = await strapi<[Post]>({
-			endpoint: 'blogs?populate=*&sort=createdAt:desc&pagination[pageSize]=1&filters[hidden][$ne]=true',
+			endpoint: 'posts?populate=*&sort=createdAt:desc&pagination[pageSize]=1&filters[hidden][$ne]=true',
 			wrappedByKey: 'data',
 		});
 		
