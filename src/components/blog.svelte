@@ -21,7 +21,7 @@
 		}
 
 		blogs = (await strapi<[Post]>({
-			endpoint: 'blogs?populate=tags&sort=createdAt:desc&filters[hidden][$ne]=true',
+			endpoint: 'posts?populate=tags&sort=createdAt:desc&filters[hidden][$ne]=true',
 			wrappedByKey: 'data',
 		}));
 
