@@ -45,6 +45,7 @@ export async function strapi<T>({
 }
 
 export const strapiImage = (image: Image): string => {
+  if (image.mock) return image.url;
   return `${import.meta.env.VITE_STRAPI_URL}${image.url}`;
 }
 
@@ -138,6 +139,7 @@ export interface Image {
   mime: string;
   size: number;
   url: string;
+  mock: boolean | undefined;
   previewUrl: string | null;
   provider: string;
   provider_metadata: string | null;
@@ -173,6 +175,7 @@ export const mockImage = (url: string): Image => ({
   mime: 'image/png',
   size: 0,
   url,
+  mock: true,
   previewUrl: null,
   provider: 'local',
   provider_metadata: null,
