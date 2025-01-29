@@ -45,7 +45,6 @@ export async function strapi<T>({
 }
 
 export const strapiImage = (image: Image): string => {
-  if (image.provider === 'local') return image.url;
   return `${import.meta.env.VITE_STRAPI_URL}${image.url}`;
 }
 
