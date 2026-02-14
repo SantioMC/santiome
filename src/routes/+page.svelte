@@ -67,6 +67,11 @@
 				src="https://www.astrid.sh/buttons/astrid-badge.png"
 				href="https://www.astrid.sh/"
 			/>
+			<Badge
+				name="Lily"
+				src="https://lily.pet/_astro/01_lily-pet.C0mkStmg_Z23S6Wo.webp"
+				href="https://lily.pet/"
+			/>
 		</div>
 	</section>
 </div>
