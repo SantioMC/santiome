@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+	--color-primary: #9d8dd3;
+	--color-secondary: #8f8dd3;
+	--color-text: #dfd7f9;
+
+	--color-background: #121617;
+	--color-card: #1f2324;
+}
+
+* {
+	@apply box-border;
+}
+
+body {
+	font-family: 'Outfit', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Nunito', 'Outfit', sans-serif;
+}
+
+button {
+	@apply rounded bg-primary px-2 py-1 text-white transition-all outline-none not-disabled:hover:brightness-90 not-disabled:active:scale-[1.02] disabled:grayscale-75;
+}
+
+/* Any a that has no other elements inside of it */
+a:not(:has(*)) {
+	@apply text-primary underline transition-all hover:brightness-125;
+}
+
+.card {
+	@apply mx-auto my-12 h-fit rounded-lg bg-card p-4 lg:w-4xl;
+}
+
+.overshoot {
+	@apply ease-[linear(0,0.918_15%,1.186_23.2%,1.338_32.2%,1.378_39.4%,1.362_47.4%,1.059_81.6%,1)];
+}
