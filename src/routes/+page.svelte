@@ -24,8 +24,7 @@
 			a backend developer but in recent years I've been working with tools such as Kubernetes,
 			Terraform, and other CI/CD tools to help manage and scale infrastructure for some of my work.
 			Check out my <a href="https://github.com/SantioMC" target="_blank">Github</a>, or reach out to
-			me on discord
-			<code class="bg-background px-2 font-mono">@santio.</code>
+			me on <a href="https://discord.com/users/239752804468654090" target="_blank">Discord</a>
 		</p>
 	</section>
 

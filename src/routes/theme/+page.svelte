@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex h-lvh items-center justify-center">
-	<div class="flex flex-wrap gap-8">
+	<div class="flex flex-wrap items-center justify-center gap-8">
 		<Color name="primary" class="bg-primary" />
 		<Color name="secondary" class="bg-secondary" />
 		<Color name="text" class="bg-text text-black!" />
