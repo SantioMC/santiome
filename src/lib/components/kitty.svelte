@@ -25,7 +25,7 @@
 	let debugging = $derived(page.url.searchParams.has('debug'));
 
 	const images = {
-		idle: '/cat/cat-idle.png',
+		idle: '/cat/cat-idle.gif',
 		walking: '/cat/cat-walk.gif'
 	} as const as Record<State, string>;
 
