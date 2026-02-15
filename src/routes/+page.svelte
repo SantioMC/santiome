@@ -32,8 +32,8 @@
 		<h2 class="text-lg font-bold">Projects</h2>
 		<p>
 			I've worked on quite a few various projects, and a bit all over the place. See some of the
-			more prominent ones below, these are also places I've both contributed to and also worked at.
-			Check them out 😋.
+			more prominent ones below, these are also places I've both contributed to or worked at. Check
+			them out 😋.
 		</p>
 
 		<div class="mt-4 flex flex-wrap gap-4">
