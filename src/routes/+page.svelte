@@ -6,11 +6,7 @@
 
 <div class="card flex flex-col gap-8">
 	<div class="flex items-center gap-3">
-		<img
-			src="https://gravatar.com/avatar/{emailHash}?s=260&d=mp"
-			alt="Avatar"
-			class="h-12 w-12 rounded-full"
-		/>
+		<img src="/img/profile-picture.webp" alt="Avatar" class="h-12 w-12 rounded-full" />
 
 		<div class="flex flex-col">
 			<h1 class="text-lg leading-6">Santio</h1>
@@ -55,23 +51,11 @@
 		</p>
 
 		<div class="mt-4 flex flex-wrap gap-2">
-			<Badge name="Santio" src="/badge.png" />
-			<Badge name="Aroze" src="https://aroze.me/images/88x31/aroze.png" href="https://aroze.me" />
-			<Badge
-				name="Eva"
-				src="https://kibty.town/files/img/buttons/kibty.town-badge.gif"
-				href="https://kibty.town/"
-			/>
-			<Badge
-				name="Astrid"
-				src="https://www.astrid.sh/buttons/astrid-badge.png"
-				href="https://www.astrid.sh/"
-			/>
-			<Badge
-				name="Lily"
-				src="https://lily.pet/_astro/01_lily-pet.C0mkStmg_Z23S6Wo.webp"
-				href="https://lily.pet/"
-			/>
+			<Badge name="Santio" src="/badge/santio.webp" />
+			<Badge name="Aroze" src="/badge/aroze.png" href="https://aroze.me" />
+			<Badge name="Eva" src="/badge/eva.gif" href="https://kibty.town/" />
+			<Badge name="Astrid" src="/badge/astrid.png" href="https://www.astrid.sh/" />
+			<Badge name="Lily" src="/badge/lily.webp" href="https://lily.pet/" />
 		</div>
 	</section>
 </div>

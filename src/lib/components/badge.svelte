@@ -12,10 +12,10 @@
 
 {#if href}
 	<a {href}>
-		<img {src} alt="{name}'s 88x31" />
+		<img width="88" height="31" {src} alt="{name}'s 88x31" />
 	</a>
 {:else}
-	<img {src} alt="{name}'s 88x31" />
+	<img width="88" height="31" {src} alt="{name}'s 88x31" />
 {/if}
 
 <style>
