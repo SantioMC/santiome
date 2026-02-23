@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Badge from '$lib/components/badge.svelte';
 	import Project from '$lib/components/project.svelte';
-	const emailHash = '131a65afa8070a377c3a960ad3af1787e5af2df38961727510e2e1a93de576dd';
 </script>
 
 <div class="card flex flex-col gap-8">
@@ -33,13 +32,19 @@
 		</p>
 
 		<div class="mt-4 flex flex-wrap gap-4">
+			<Project
+				name="GamerSafer"
+				src="/project/gamersafer.webp"
+				href="https://gamersafer.com/"
+				larger
+			/>
 			<Project name="play.hosting" src="/project/playhosting.svg" href="https://play.hosting/" />
 			<Project
-				name="soul studios"
+				name="Soul Studios"
 				src="/project/soulstudios.svg"
 				href="https://www.soulstudios.io/"
 			/>
-			<Project name="lilypad studios" src="/project/lilypad.svg" href="https://lilypad.gg/" />
+			<Project name="Lilypad Studios" src="/project/lilypad.svg" href="https://lilypad.gg/" />
 		</div>
 	</section>
 

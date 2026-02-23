@@ -25,7 +25,7 @@
 	bind:this={element}
 	role="button"
 	onclick={copyColor}
-	class="overshoot relative h-24 w-24 cursor-pointer rounded text-white transition-all hover:scale-105 hover:rotate-2 {className}"
+	class="overshoot relative h-28 w-28 cursor-pointer rounded text-white transition-all hover:scale-105 hover:rotate-2 {className}"
 >
 	<p class="absolute right-2 bottom-1 text-sm select-none">{name.toLowerCase()}</p>
 </div>
