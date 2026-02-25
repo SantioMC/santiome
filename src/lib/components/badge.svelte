@@ -23,7 +23,6 @@
 		image-rendering: auto;
 		image-rendering: crisp-edges;
 		image-rendering: pixelated;
-		image-rendering: -webkit-optimize-contrast;
 		width: 6rem;
 		height: auto;
 	}
