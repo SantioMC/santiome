@@ -61,6 +61,7 @@
 			<Badge name="Eva" src="/badge/eva.gif" href="https://kibty.town/" />
 			<Badge name="Astrid" src="/badge/astrid.png" href="https://www.astrid.sh/" />
 			<Badge name="Lily" src="/badge/lily.webp" href="https://lily.pet/" />
+			<Badge name="Ollie" src="/badge/ollie.png" href="https://ollie.lol/" />
 		</div>
 	</section>
 </div>
