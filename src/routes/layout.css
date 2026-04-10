@@ -59,7 +59,7 @@ a:not(:has(*)) {
 }
 
 .card {
-	@apply mx-auto my-12 h-fit rounded-lg bg-card p-4 lg:w-4xl;
+	@apply mx-auto h-fit rounded-lg bg-card p-4 lg:w-4xl;
 }
 
 .overshoot {
