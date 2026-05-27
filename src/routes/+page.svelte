@@ -62,7 +62,7 @@
 			<div class="mt-4 flex flex-wrap gap-2">
 				<Badge name="Santio" src="/badge/santio.webp" />
 				<Badge name="Aroze" src="/badge/aroze.png" href="https://aroze.me" />
-				<Badge name="Eva" src="/badge/eva.png" href="https://eva.ac/" />
+				<Badge name="eva" src="/badge/eva.png" href="https://eva.ac/" />
 				<Badge name="Astrid" src="/badge/astrid.png" href="https://www.astrid.sh/" />
 				<Badge name="Lily" src="/badge/lily.webp" href="https://lily.pet/" />
 				<Badge name="Ollie" src="/badge/ollie.png" href="https://ollie.lol/" />
