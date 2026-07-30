@@ -42,6 +42,7 @@
 					href="https://gamersafer.com/"
 					larger
 				/>
+				<Project name="Timbers Studio" src="/project/timbersstudio.png" />
 				<Project name="play.hosting" src="/project/playhosting.svg" href="https://play.hosting/" />
 				<Project
 					name="Soul Studios"
@@ -71,8 +72,16 @@
 		</section>
 	</div>
 
-	<div class="flex items-center gap-4 mx-4 md:mx-auto lg:w-4xl flex-col md:flex-row md:w-auto">
-		<CopyButton icon='key' text='Copy SSH Key' copy='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKV9lN6Map8pkOWPnCsZfdwe+7IHRt4sDOPXSdb/lCbD' />
-		<CopyButton icon='brand-minecraft' text='Copy Minecraft Unique ID' copy='0bfea1b6-8ed9-4eb9-93da-c4273bfa0a09' />
+	<div class="mx-4 flex flex-col items-center gap-4 md:mx-auto md:w-auto md:flex-row lg:w-4xl">
+		<CopyButton
+			icon="key"
+			text="Copy SSH Key"
+			copy="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKV9lN6Map8pkOWPnCsZfdwe+7IHRt4sDOPXSdb/lCbD"
+		/>
+		<CopyButton
+			icon="brand-minecraft"
+			text="Copy Minecraft Unique ID"
+			copy="0bfea1b6-8ed9-4eb9-93da-c4273bfa0a09"
+		/>
 	</div>
 </div>
